@@ -1,0 +1,18 @@
+<div class="main">
+  <div class="container">
+    <h1>Sign Up</h1>
+    <p>New Client Signup</p>
+
+    <div class="signup-form">
+		<%= form_for(@client) do |f| %>   
+	    	<%= f.text_field :company, :placeholder => "Company" %>
+	        <%= f.text_field :subscription_type, :placeholder => "Subscription Type" %>
+	 		<%= f.text_field :logo_img, :placeholder => "Logo" %>
+	 		<%= f.email_field :email, :placeholder => "Email" %>
+	        <%= f.password_field :password, :placeholder => "Password" %> 
+	    	<%= f.submit "Create an Account", class: "btn-submit" %> 
+		<% end %>  
+    </div>
+
+  </div>
+</div>

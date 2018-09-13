@@ -1,0 +1,25 @@
+<div class = "main">
+
+	<div class="edit-note">
+		<image><%= image_tag @note.image %></image>
+
+		<%= form_for(@note) do |n| %>  
+	  		<div class="field"> 
+	    		<%= n.label :employee %><br> 
+	    		<%= n.text_field :employee %> 
+	  		</div>
+	  		<div class="field"> 
+	    		<%= n.label :doctor %><br> 
+	    		<%= n.text_field :doctor %> 
+	  		</div>
+	  		<div class="field"> 
+	    		<%= n.label :is_fraudulent %><br> 
+	    		<%= n.select(:is_fraudulent, options_for_select([[@note.is_fraudulent, @note.is_fraudulent], ['Pending', nil], ['True', true], ['False', false]]))%>
+	  		</div>
+	    	
+	    	<%= n.submit "Save Changes", id:"edit-submit" %>
+	    	
+	    <% end %>
+	</div>		
+	
+</div>

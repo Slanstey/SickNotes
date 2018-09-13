@@ -1,0 +1,33 @@
+<div class="main">
+  <div class="container">
+    <h1>Dashboard: <%= @client.company%></h1>
+
+    <div class="image-upload">
+    	<h3>Upload image of sick note</h3>
+    	<div class="signup-form">
+			<%= form_for(@note) do |f| %>
+		    	<%= f.file_field :image %>	    	
+		    	<%= f.submit "Load Sick Note", class: "btn-submit" %> 
+			<% end %>
+		</div>
+    </div>
+
+    <div class="notes-list">
+    	<h3>List of Sick Notes</h3>
+		<% @notes.each do |n| %>
+		<div class="note">
+			<div class = "sec">
+		    	<image><%= image_tag n.image %></image>
+		    </div>
+		    <div class="sec" id="sec-text">
+		    	<p><a>Client: </a><%= n.client.company %></p>
+		        <p><a>Employee: </a><%= n.employee %></p>
+		        <p><a>Doctor: </a><%= n.doctor %></p>
+		        <p><a>Fraudulent: </a><%= n.is_fraudulent == nil ? ("Pending") : (n.is_fraudulent)%></p>     
+			</div>
+		</div>
+		<% end %>
+	</div>
+
+  </div>
+</div>

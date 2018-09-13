@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>SickNotes</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' =>true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  </head>
+
+  <body>
+
+  <div class = "nav-bar">
+	 	<ul class = "nav-list">
+			<li><%= link_to "Home", root_path %></li>
+			<li><%= link_to "Dashboard", dashboard_path %></li>
+      <% if current_client && current_client.admin? %>
+			  <li><%= link_to "Pending Notes", pending_notes_path %></li>
+        <li><%= link_to "Clients", clients_path %></li>
+      <% end %>
+		</ul> 
+	</div>
+
+  <% if current_client %> 
+    <ul> 
+      <li><%= current_client.email %></li> 
+      <li><%= link_to "Log out", logout_path, method: "delete" %></li> 
+    </ul> 
+  <% else %> 
+    <ul> 
+      <li><%= link_to "Login", 'login' %></a></li> 
+      <li><%= link_to "Signup", 'signup' %></a></li> 
+    </ul> 
+  <% end %>
+	 		
+
+    <%= yield %>
+  </body>
+</html>

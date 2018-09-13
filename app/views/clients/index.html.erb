@@ -1,0 +1,16 @@
+<div class = "main">
+			
+	<% @clients.each do |c| %>
+	<div class="client">
+		<div class="sec">
+	    	<image><%= image_tag c.logo_img %></image>
+		</div>
+	    <div class="sec" id="sec-text">
+		    <h3><%= c.company %></h3>
+		    <p><a>Subscription: </a><%= c.subscription_type %></p>  
+		    <p><%= link_to "Show Notes", client_path(c) %></p>
+	    </div>
+	</div>
+    <% end %>
+
+</div>

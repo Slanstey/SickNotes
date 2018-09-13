@@ -1,0 +1,11 @@
+<div class = "main">
+
+	<image><%= image_tag @note.image %></image>
+
+	<p><a>Company: </a><%= @note.client.company %></p>
+	<p><a>Employee: </a><%= @note.employee %></p>
+	<p><a>Doctor: </a><%= @note.doctor %></p>
+	<p><a>Fraud: </a><%= @note.is_fraudulent == nil ? ("Pending") : (@note.is_fraudulent) %></p>
+	<p><%= link_to "Edit", edit_note_path(@note) %></p> 		
+	
+</div>

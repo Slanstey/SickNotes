@@ -1,0 +1,19 @@
+<div class = "main">
+	
+	<h1><%=@client.company%></h1>
+
+	<% @notes.each do |n| %>
+	<div class="note">
+		<div class = "sec">
+	    	<image><%= image_tag n.image %></image>
+	    </div>
+	    <div class="sec" id="sec-text">
+	        <p><a>Employee: </a><%= n.employee %></p>
+	        <p><a>Doctor: </a><%= n.doctor %></p>
+	        <p><a>Fraud: </a><%= n.is_fraudulent == nil ? ("Pending") : (n.is_fraudulent) %></p>
+			<p><%= link_to "See More", note_path(n) %></p>
+		</div>
+	</div>
+	<% end %>	
+	
+</div>
